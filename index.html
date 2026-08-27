@@ -99,11 +99,12 @@
     <!-- Wrapper needed because .layout is a 2-column CSS grid (260px sidebar / 1fr
          content) — without it, a second top-level element here flows into the
          content column instead of stacking under the TOC. The wrapper (not #toc)
-         now owns the sticky positioning, so the TOC and the buttons scroll and pin
-         together as one unit; #toc's own sticky is switched off inline so the two
-         don't fight each other. -->
-    <div class="sidebar-col" style="position:sticky; top:78px;">
-      <nav class="toc" id="toc" aria-label="Course contents" style="position:static;">
+         owns the sticky positioning (see .sidebar-col in styles.css) so the TOC
+         and the buttons scroll and pin together as one unit; #toc keeps its own
+         unmodified CSS (sticky on desktop, off-canvas fixed drawer on mobile) —
+         nesting it inside a sticky wrapper doesn't conflict with that. -->
+    <div class="sidebar-col">
+      <nav class="toc" id="toc" aria-label="Course contents">
         <h2>Contents</h2>
         <ol id="tocList"><!-- populated by JS --></ol>
       </nav>

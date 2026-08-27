@@ -203,6 +203,15 @@ body::before {
 
 /* ---------------- Sidebar / TOC ---------------- */
 .toc-backdrop { display: none; }   /* only used as a drawer overlay on mobile */
+/* Wraps #toc + the cross-course nav buttons so they occupy a single grid
+   column and stay pinned together while scrolling (see index.html). Sticky
+   only on desktop — on mobile #toc becomes an off-canvas drawer (see its
+   own mobile rules below) and the wrapper must NOT stay pinned, or it
+   fights that layout and the page overflows horizontally. */
+.sidebar-col { position: sticky; top: 78px; }
+@media (max-width: 640px) {
+  .sidebar-col { position: static; top: auto; }
+}
 .toc {
   position: sticky; top: 78px;
   background: var(--surface); border: 1px solid var(--border);
