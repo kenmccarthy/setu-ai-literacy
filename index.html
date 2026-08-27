@@ -79,10 +79,31 @@
   <div class="layout">
     <!-- ===================== TABLE OF CONTENTS ===================== -->
     <div class="toc-backdrop" id="tocBackdrop"></div>
-    <nav class="toc" id="toc" aria-label="Course contents">
-      <h2>Contents</h2>
-      <ol id="tocList"><!-- populated by JS --></ol>
-    </nav>
+    <!-- Wrapper needed because .layout is a 2-column CSS grid (260px sidebar / 1fr
+         content) — without it, a second top-level element here flows into the
+         content column instead of stacking under the TOC. The wrapper (not #toc)
+         now owns the sticky positioning, so the TOC and the buttons scroll and pin
+         together as one unit; #toc's own sticky is switched off inline so the two
+         don't fight each other. -->
+    <div class="sidebar-col" style="position:sticky; top:78px;">
+      <nav class="toc" id="toc" aria-label="Course contents" style="position:static;">
+        <h2>Contents</h2>
+        <ol id="tocList"><!-- populated by JS --></ol>
+      </nav>
+
+      <!-- Cross-course navigation. Replace the three href="#" values with each
+           course's real URL once hosting is confirmed. -->
+      <nav class="course-links" aria-label="Other SETU GenAI courses"
+           style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+                  padding:14px;box-shadow:var(--shadow-sm);margin-top:14px;
+                  display:flex;flex-direction:column;gap:8px;">
+        <h2 style="font-size:12px;text-transform:uppercase;letter-spacing:.08em;
+                   color:var(--text-mute);margin:4px 6px 6px;">GenAI Programme</h2>
+        <a class="btn" href="#" style="background:var(--sea-green);color:#fff;width:100%;justify-content:left;">AI Literacy</a>
+        <a class="btn" href="#" style="background:var(--clover);color:#fff;width:100%;justify-content:left;">AI Competency</a>
+        <a class="btn" href="#" style="background:var(--barrow-blue);color:#fff;width:100%;justify-content:left;">AI Fluency</a>
+      </nav>
+    </div>
 
     <!-- ===================== CONTENT ===================== -->
     <main class="content" id="main">
