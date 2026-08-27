@@ -6,6 +6,10 @@ GenAI programme. Aimed at all SETU staff. No maths, no jargon.
 **Course 1 of 3** · Learning outcomes, topics, and interactive activities as specified
 in the course brief.
 
+> This is the canonical repo for Course 1 — AI Literacy, migrated here (with full
+> history) from the original `genai_course` prototype repo. Courses 2 and 3 of the
+> programme will live alongside it as the programme grows.
+
 ## What it is
 
 A **standalone static website** — plain HTML, CSS and JavaScript with **no build step
@@ -88,6 +92,25 @@ Just open `index.html` in a browser. Or serve the folder:
 python3 -m http.server 8000    # then visit http://localhost:8000
 ```
 
+## Recent updates
+
+- **AI governance structure diagram** added to *AI at SETU*, with a click-to-enlarge
+  lightbox for the image.
+- **Cover redesign** — the SETU U crest is now woven into the cover gradient and the
+  right-hand page background.
+- **Quiz fix** — removed a duplicated radio-button option in the "Spot the
+  hallucination" activity.
+- **Layout polish** — Key Messages moved to the end of each section, answer states
+  given distinct colours, and the completion ("Finish") page tidied up.
+- **Terminology standardised** throughout to *courses* + *sections* (no
+  "module"/"stage"/"hub" used as structural terms).
+- **Emojis replaced** with a consistent set of brand-appropriate SVG line icons.
+- **AI Integration video** embedded inline (privacy-enhanced YouTube), with a
+  fallback link for LMS environments that block iframes.
+
+See the full commit history for details, and `docs/CONTENT-TODO.md` for what's still
+outstanding.
+
 ## Before it goes live — SETU to complete
 
 The narrated content is in place from the script. A few **SETU-specific pieces** remain
@@ -95,8 +118,9 @@ as clearly-marked placeholders. Search the project for `SETU to confirm` /
 `placeholder__flag`, and see **`docs/CONTENT-TODO.md`** for the full checklist. In short:
 
 1. **Responsible AI at SETU:** links to the Position Statement and AI Principles.
-2. **AI at SETU:** the governance-structure graphic, resource links, and the hub link + contact.
-3. **Completion screen:** the name of Module 2 (AI Competency) and how to enrol.
+2. **AI at SETU:** resource links on the six resource cards, and the hub link + contact
+   (the governance-structure graphic itself is already in place).
+3. **Completion screen:** the name of Course 2 (AI Competency) and how to enrol.
 4. **Logos (optional):** swap the extracted PNGs for official SVG/EPS vector files for print.
 
 ## Branding tokens
