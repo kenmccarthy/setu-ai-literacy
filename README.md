@@ -1,4 +1,4 @@
-# SETU GenAI Programme — Module 1: AI Literacy
+# SETU GenAI Programme — Course 1: AI Literacy
 
 A self-paced, ~1-hour web course that is the shared foundation of SETU's three-part
 GenAI programme. Aimed at all SETU staff. No maths, no jargon.
