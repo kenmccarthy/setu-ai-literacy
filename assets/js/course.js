@@ -488,3 +488,42 @@
   go(startAt);
   updateProgress();
 })();
+
+// ====================================================================
+// Theme toggle (light/dark) — independent of course state above.
+// ====================================================================
+(function () {
+  "use strict";
+
+  var THEME_KEY = "setu-genai-theme";
+  var btn = document.getElementById("themeToggle");
+  if (!btn) return;
+
+  var root = document.documentElement;
+  var sunIcon = btn.querySelector(".theme-toggle__sun");
+  var moonIcon = btn.querySelector(".theme-toggle__moon");
+  var media = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+
+  function currentTheme() {
+    var attr = root.getAttribute("data-theme");
+    if (attr === "dark" || attr === "light") return attr;
+    return media && media.matches ? "dark" : "light";
+  }
+  function render(theme) {
+    var isDark = theme === "dark";
+    btn.setAttribute("aria-pressed", String(isDark));
+    btn.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+    sunIcon.hidden = isDark;
+    moonIcon.hidden = !isDark;
+  }
+  function applyTheme(theme) {
+    root.setAttribute("data-theme", theme);
+    try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+    render(theme);
+  }
+
+  render(currentTheme());
+  btn.addEventListener("click", function () {
+    applyTheme(currentTheme() === "dark" ? "light" : "dark");
+  });
+})();
