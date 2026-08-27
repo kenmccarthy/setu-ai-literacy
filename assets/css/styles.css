@@ -203,15 +203,6 @@ body::before {
 
 /* ---------------- Sidebar / TOC ---------------- */
 .toc-backdrop { display: none; }   /* only used as a drawer overlay on mobile */
-/* Wraps #toc + the cross-course nav buttons so they occupy a single grid
-   column and stay pinned together while scrolling (see index.html). Sticky
-   only on desktop — on mobile #toc becomes an off-canvas drawer (see its
-   own mobile rules below) and the wrapper must NOT stay pinned, or it
-   fights that layout and the page overflows horizontally. */
-.sidebar-col { position: sticky; top: 78px; }
-@media (max-width: 640px) {
-  .sidebar-col { position: static; top: auto; }
-}
 .toc {
   position: sticky; top: 78px;
   background: var(--surface); border: 1px solid var(--border);
@@ -223,27 +214,36 @@ body::before {
 }
 .toc ol { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
 .toc li { margin: 1px 0; }
-.toc a {
+#tocList a {
   counter-increment: toc;
   display: flex; align-items: center; gap: 10px;
   padding: 8px 10px; border-radius: 8px; text-decoration: none;
   color: var(--text-soft); font-size: 14px; line-height: 1.3;
   border: 1px solid transparent;
 }
-.toc a::before {
+#tocList a::before {
   content: counter(toc);
   width: 22px; height: 22px; flex: none; border-radius: 6px;
   background: var(--surface-2); color: var(--text-mute);
   display: grid; place-items: center; font-size: 12px; font-weight: 700;
   border: 1px solid var(--border);
 }
-.toc a:hover { background: var(--surface-2); color: var(--text); }
-.toc a[aria-current="step"] {
+#tocList a:hover { background: var(--surface-2); color: var(--text); }
+#tocList a[aria-current="step"] {
   background: var(--brand-tint); color: var(--brand-strong);
   border-color: color-mix(in srgb, var(--brand) 25%, transparent); font-weight: 600;
 }
-.toc a[aria-current="step"]::before { background: var(--brand); color: #fff; border-color: var(--brand); }
-.toc a.is-done::before { background: var(--accent); color: #fff; border-color: var(--accent); content: "✓"; }
+#tocList a[aria-current="step"]::before { background: var(--brand); color: #fff; border-color: var(--brand); }
+#tocList a.is-done::before { background: var(--accent); color: #fff; border-color: var(--accent); content: "✓"; }
+
+/* Cross-course navigation — lives inside #toc (after the contents list) so
+   it's part of the same single sticky/drawer box, rather than a separate
+   element that has to be kept in sync with it while scrolling. */
+.course-links { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 8px; }
+.course-links .btn { width: 100%; justify-content: flex-start; color: #fff; }
+.course-links .btn--literacy   { background: var(--sea-green); }
+.course-links .btn--competency { background: var(--clover); }
+.course-links .btn--fluency    { background: var(--barrow-blue); }
 
 /* ---------------- Content column ---------------- */
 .content { min-width: 0; }

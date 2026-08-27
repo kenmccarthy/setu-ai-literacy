@@ -96,32 +96,22 @@
   <div class="layout">
     <!-- ===================== TABLE OF CONTENTS ===================== -->
     <div class="toc-backdrop" id="tocBackdrop"></div>
-    <!-- Wrapper needed because .layout is a 2-column CSS grid (260px sidebar / 1fr
-         content) — without it, a second top-level element here flows into the
-         content column instead of stacking under the TOC. The wrapper (not #toc)
-         owns the sticky positioning (see .sidebar-col in styles.css) so the TOC
-         and the buttons scroll and pin together as one unit; #toc keeps its own
-         unmodified CSS (sticky on desktop, off-canvas fixed drawer on mobile) —
-         nesting it inside a sticky wrapper doesn't conflict with that. -->
-    <div class="sidebar-col">
-      <nav class="toc" id="toc" aria-label="Course contents">
-        <h2>Contents</h2>
-        <ol id="tocList"><!-- populated by JS --></ol>
-      </nav>
+    <nav class="toc" id="toc" aria-label="Course contents">
+      <h2>Contents</h2>
+      <ol id="tocList"><!-- populated by JS --></ol>
 
-      <!-- Cross-course navigation. Replace the three href="#" values with each
-           course's real URL once hosting is confirmed. -->
-      <nav class="course-links" aria-label="Other SETU GenAI courses"
-           style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
-                  padding:14px;box-shadow:var(--shadow-sm);margin-top:14px;
-                  display:flex;flex-direction:column;gap:8px;">
-        <h2 style="font-size:12px;text-transform:uppercase;letter-spacing:.08em;
-                   color:var(--text-mute);margin:4px 6px 6px;">GenAI Programme</h2>
-        <a class="btn" href="#" style="background:var(--sea-green);color:#fff;width:100%;justify-content:left;">AI Literacy</a>
-        <a class="btn" href="#" style="background:var(--clover);color:#fff;width:100%;justify-content:left;">AI Competency</a>
-        <a class="btn" href="#" style="background:var(--barrow-blue);color:#fff;width:100%;justify-content:left;">AI Fluency</a>
+      <!-- Cross-course navigation — inside the same box as the contents list,
+           so it's always exactly where the list ends with nothing else to
+           keep in sync (previously a separate sticky element, which drifted
+           out of alignment on scroll). Replace the three href="#" values
+           with each course's real URL once hosting is confirmed. -->
+      <nav class="course-links" aria-label="Other SETU GenAI courses">
+        <h2>GenAI Programme</h2>
+        <a class="btn btn--literacy" href="#">AI Literacy</a>
+        <a class="btn btn--competency" href="#">AI Competency</a>
+        <a class="btn btn--fluency" href="#">AI Fluency</a>
       </nav>
-    </div>
+    </nav>
 
     <!-- ===================== CONTENT ===================== -->
     <main class="content" id="main">
