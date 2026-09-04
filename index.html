@@ -107,9 +107,9 @@
            with each course's real URL once hosting is confirmed. -->
       <nav class="course-links" aria-label="Other SETU GenAI courses">
         <h2>GenAI Programme</h2>
-        <a class="btn btn--literacy" href="https://setu.potential.ly/playlists/ai-literacy">AI Literacy</a>
-        <a class="btn btn--competency" href="https://setu.potential.ly/playlists/ai-competency">AI Competency</a>
-        <a class="btn btn--fluency" href="https://setu.potential.ly/playlists/ai-fluency">AI Fluency</a>
+        <a class="btn btn--literacy" href="https://setu.potential.ly/playlists/ai-literacy" target="_blank" rel="noopener noreferrer">AI Literacy</a>
+        <a class="btn btn--competency" href="https://setu.potential.ly/playlists/ai-competency" target="_blank" rel="noopener noreferrer">AI Competency</a>
+        <a class="btn btn--fluency" href="https://setu.potential.ly/playlists/ai-fluency" target="_blank" rel="noopener noreferrer">AI Fluency</a>
       </nav>
     </nav>
 
@@ -958,7 +958,7 @@
           <!-- Certificate of completion -->
           <div class="certgen" id="certgen">
             <h3>Download your certificate of completion</h3>
-            <p style="margin:0;font-size:14.5px;color:var(--text-soft)">Enter your name as you'd like it to appear, then preview or download your certificate (save as PDF, or print).</p>
+            <p style="margin:0;font-size:14.5px;color:var(--text-soft)">Enter your name as you'd like it to appear, then preview your certificate or download it as a PDF.</p>
             <div class="certgen__row">
               <input type="text" id="certName" placeholder="Your full name" autocomplete="name" aria-label="Your name for the certificate" />
               <button class="btn btn--ghost" id="certPreviewBtn" type="button">Preview</button>
@@ -1026,6 +1026,8 @@
 
   <script src="assets/js/scorm.js"></script>
   <script src="assets/js/course.js"></script>
+  <script src="assets/js/vendor/html2canvas.min.js"></script>
+  <script src="assets/js/vendor/jspdf.umd.min.js"></script>
   <script src="assets/js/certificate.js"></script>
 </body>
 </html>

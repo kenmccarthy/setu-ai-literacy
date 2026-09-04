@@ -727,6 +727,12 @@ hr.rule { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
     radial-gradient(circle at 100% 0, color-mix(in srgb, var(--sea-green) 10%, transparent), transparent 40%),
     radial-gradient(circle at 0 100%, color-mix(in srgb, var(--brand) 8%, transparent), transparent 40%);
 }
+/* html2canvas (used for the "Download certificate" PDF) can't parse
+   color-mix() inside radial-gradient()/border-color — this class is toggled
+   on only for the instant of that capture, dropping to plain colors so the
+   snapshot doesn't come out blank. See assets/js/certificate.js. */
+.certificate.is-capturing .certificate__border { background: none; }
+.certificate.is-capturing .certificate__name { border-bottom-color: var(--brand); }
 .certificate__logo { height: 54px; width: auto; margin: 0 auto 18px; display: block; }
 .certificate__kicker {
   font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--sea-green); font-weight: 700;
